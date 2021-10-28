@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<h1>COURSES</h1>
+<a class="btn btn-outline-success" href="{% url 'courses_create' %}" role="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+    </svg>
+    Add entry
+</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Semester</th>
+            <!-- <th scope="col">Actions</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.semester }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

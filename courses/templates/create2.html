@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<h1>Add course entry</h1>
+<form action="{% url 'courses_create' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label for="name" class="form-label">Course Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <select class="form-select" name="semester">
+                <option value="1">First</option>
+                <option value="2">Second</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

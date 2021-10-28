@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add movie entry</h1>
+<form action="{% url 'movies_create' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Movie Title">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label for="date_released" class="form-label me-3">Date Released</label>
+            <input type="date" name="date_released" id="date_released">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

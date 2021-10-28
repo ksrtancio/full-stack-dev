@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Movies</h1>
+<a class="btn btn-outline-primary" href="create" role="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+    </svg>
+    Add entry
+</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Date Released</th>
+          <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.date_released }}</td>
+            <td>
+                <a class="btn btn-outline-primary" href="detail/{{ movie.id }}" role="button">View movie</a>
+                <a class="btn btn-outline-secondary" href="update/{{ movie.id }}" role="button">Edit details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

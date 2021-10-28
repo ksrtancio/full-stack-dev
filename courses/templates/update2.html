@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add movie entry</h1>
+<form action="{% url 'courses_update' course.id %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Course Name" value="{{ course.name }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <select class="form-select" name="semester">
+                <option value="1" {% if course.semester == 1 %} selected {% endif %}>First</option>
+                <option value="2"{% if course.semester == 2 %} selected {% endif %}>Second</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

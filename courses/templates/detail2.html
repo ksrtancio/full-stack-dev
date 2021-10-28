@@ -1,0 +1,12 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<h1>{{ course.name }}</h1>
+<h4><span class="text-muted">Semester {{ course.semester }}</span></h4>
+<div class="mt-5">
+    <!-- <p>This movie was put in the database on </p> -->
+</div>
+
+<a class="btn btn-outline-secondary" href="{% url 'courses_list' %}" role="button">Go back to courses list</a>
+<a class="btn btn-outline-primary" href="#" role="button">Edit details</a>
+{% endblock %}
